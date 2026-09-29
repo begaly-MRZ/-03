@@ -1,0 +1,1417 @@
+```html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>А. С. Пушкин — Презентация</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --paper: #f5efe2;
+    --paper2: #e9dfcc;
+    --burgundy: #681f2a;
+    --burgundy-dark: #3d141b;
+    --gold: #b38a45;
+    --ink: #27221e;
+    --gray: #746d64;
+    --white: #fffaf0;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow: hidden;
+}
+
+.presentation {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* =========================
+   СЛАЙД
+========================= */
+
+.slide {
+    position: absolute;
+    inset: 0;
+
+    display: none;
+
+    padding: 55px 8vw 80px;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.slide.active {
+    display: flex;
+    animation: showSlide .5s ease;
+}
+
+@keyframes showSlide {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+   ДЕКОР
+========================= */
+
+.decor-circle {
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(179,138,69,.25);
+
+    right: -180px;
+    top: -150px;
+}
+
+.decor-circle2 {
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    border-radius: 50%;
+
+    background: rgba(104,31,42,.05);
+
+    left: -100px;
+    bottom: -100px;
+}
+
+/* =========================
+   ТЕКСТ
+========================= */
+
+.eyebrow {
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    color: var(--gold);
+
+    text-transform: uppercase;
+
+    font-weight: bold;
+}
+
+h1 {
+    font-size: clamp(50px, 7vw, 95px);
+
+    line-height: .95;
+
+    color: var(--burgundy-dark);
+}
+
+h1 span {
+    color: var(--burgundy);
+}
+
+h2 {
+    font-size: clamp(36px, 5vw, 65px);
+
+    line-height: 1;
+
+    color: var(--burgundy-dark);
+}
+
+h3 {
+    font-size: 22px;
+
+    color: var(--burgundy);
+
+    margin-bottom: 12px;
+}
+
+p {
+    font-size: clamp(17px, 1.5vw, 21px);
+
+    line-height: 1.65;
+}
+
+.muted {
+    color: var(--gray);
+}
+
+/* =========================
+   ЛИНИЯ
+========================= */
+
+.gold-line {
+    width: 85px;
+    height: 4px;
+
+    background: var(--gold);
+
+    margin: 20px 0 28px;
+
+    border-radius: 10px;
+}
+
+/* =========================
+   ФОТО
+========================= */
+
+.photo {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #e4d9c4,
+            #e4d9c4 12px,
+            #ded2bc 12px,
+            #ded2bc 24px
+        );
+
+    border: 2px solid rgba(104,31,42,.35);
+
+    box-shadow:
+        0 15px 35px rgba(40,25,15,.12);
+}
+
+.photo::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 12px;
+
+    border: 1px dashed rgba(104,31,42,.45);
+
+    pointer-events: none;
+
+    z-index: 3;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.placeholder {
+    font-family: Arial, sans-serif;
+
+    color: #856f50;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    padding: 25px;
+
+    z-index: 1;
+}
+
+/* =========================
+   СЛАЙД 1
+========================= */
+
+.cover {
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(179,138,69,.12),
+            transparent 35%
+        ),
+        var(--paper);
+}
+
+.cover-text {
+    width: 52%;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.cover-text p {
+    max-width: 650px;
+
+    margin-top: 25px;
+}
+
+.cover-photo {
+    width: 38%;
+
+    height: 70vh;
+
+    border-radius: 8px;
+
+    transform: rotate(2deg);
+
+    z-index: 5;
+}
+
+/* =========================
+   СЛАЙД 2
+========================= */
+
+.biography {
+    background: var(--burgundy-dark);
+
+    color: var(--white);
+
+    align-items: center;
+}
+
+.biography h2 {
+    color: var(--white);
+}
+
+.biography .muted {
+    color: #d3c8bd;
+}
+
+.bio-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 42% 58%;
+
+    gap: 65px;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.bio-photo {
+    height: 480px;
+
+    border-color: rgba(255,255,255,.25);
+}
+
+.bio-text {
+    max-width: 680px;
+}
+
+/* =========================
+   СЛАЙД 3
+========================= */
+
+.lyceum {
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--paper2);
+}
+
+.lyceum-container {
+    width: 100%;
+
+    max-width: 1150px;
+}
+
+.lyceum-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 40px;
+}
+
+.info-card {
+    background: var(--white);
+
+    padding: 30px;
+
+    border-top: 5px solid var(--burgundy);
+
+    box-shadow:
+        0 10px 30px rgba(50,30,20,.08);
+}
+
+.card-number {
+    font-family: Arial, sans-serif;
+
+    font-size: 38px;
+
+    font-weight: bold;
+
+    color: var(--gold);
+
+    margin-bottom: 18px;
+}
+
+/* =========================
+   СЛАЙД 4
+========================= */
+
+.creativity {
+    align-items: center;
+
+    background: var(--paper);
+}
+
+.creativity-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 52% 48%;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.creativity-photo {
+    height: 500px;
+}
+
+.creativity-text {
+    max-width: 650px;
+}
+
+.quote {
+    margin-top: 30px;
+
+    padding: 25px 30px;
+
+    background: var(--white);
+
+    border-left: 5px solid var(--gold);
+
+    box-shadow:
+        0 8px 25px rgba(40,25,15,.08);
+}
+
+/* =========================
+   СЛАЙД 5
+========================= */
+
+.works {
+    background: var(--burgundy);
+
+    color: white;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.works h2 {
+    color: white;
+}
+
+.works-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+    max-width: 1050px;
+
+    margin-top: 35px;
+}
+
+.work {
+    padding: 25px 28px;
+
+    background: rgba(255,255,255,.07);
+
+    border: 1px solid rgba(255,255,255,.14);
+
+    border-radius: 4px;
+}
+
+.work-title {
+    font-size: 23px;
+
+    color: #e1c27f;
+
+    margin-bottom: 8px;
+}
+
+.work p {
+    color: #eee4d8;
+}
+
+/* =========================
+   СЛАЙД 6
+========================= */
+
+.legacy {
+    align-items: center;
+
+    background: var(--paper2);
+}
+
+.legacy-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns: 58% 42%;
+
+    gap: 55px;
+
+    align-items: center;
+}
+
+.legacy-photo {
+    height: 440px;
+}
+
+.legacy-list {
+    margin-top: 30px;
+}
+
+.legacy-item {
+    display: flex;
+
+    gap: 18px;
+
+    margin-bottom: 22px;
+}
+
+.mark {
+    width: 32px;
+    height: 32px;
+
+    min-width: 32px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--burgundy);
+
+    color: white;
+
+    border-radius: 50%;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+}
+
+/* =========================
+   СЛАЙД 7
+========================= */
+
+.final {
+    background: var(--burgundy-dark);
+
+    color: white;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+.final h2 {
+    color: white;
+}
+
+.final p {
+    max-width: 760px;
+
+    margin: 25px auto 0;
+
+    color: #ddd2c7;
+}
+
+.final-photo {
+    width: 230px;
+
+    height: 130px;
+
+    margin: 35px auto 0;
+
+    border-color: rgba(255,255,255,.3);
+}
+
+/* =========================
+   НАВИГАЦИЯ
+========================= */
+
+.navigation {
+    position: fixed;
+
+    right: 30px;
+
+    bottom: 25px;
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.nav-button {
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid rgba(179,138,69,.7);
+
+    background: var(--paper);
+
+    color: var(--burgundy);
+
+    border-radius: 50%;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.nav-button:hover {
+    background: var(--gold);
+
+    color: white;
+
+    transform: scale(1.08);
+}
+
+.counter {
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    color: #777;
+
+    min-width: 45px;
+
+    text-align: center;
+}
+
+.dark-counter {
+    color: #ddd;
+}
+
+/* =========================
+   ПРОГРЕСС
+========================= */
+
+.progress {
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    height: 5px;
+
+    width: 14.28%;
+
+    background: var(--gold);
+
+    z-index: 200;
+
+    transition: width .3s ease;
+}
+
+/* =========================
+   ПОДСКАЗКА
+========================= */
+
+.hint {
+    position: fixed;
+
+    left: 30px;
+
+    bottom: 30px;
+
+    font-family: Arial, sans-serif;
+
+    color: #888;
+
+    font-size: 12px;
+
+    z-index: 100;
+}
+
+/* =========================
+   МОБИЛЬНАЯ ВЕРСИЯ
+========================= */
+
+@media(max-width: 800px) {
+
+    body {
+        overflow: auto;
+    }
+
+    .slide {
+        padding: 35px 7vw 90px;
+
+        overflow-y: auto;
+    }
+
+    .cover {
+        flex-direction: column;
+
+        justify-content: center;
+    }
+
+    .cover-text,
+    .cover-photo {
+        width: 100%;
+    }
+
+    .cover-photo {
+        height: 280px;
+    }
+
+    .bio-grid,
+    .creativity-grid,
+    .legacy-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .bio-photo,
+    .creativity-photo,
+    .legacy-photo {
+        height: 280px;
+    }
+
+    .lyceum-grid,
+    .works-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hint {
+        display: none;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div class="presentation">
+
+<div class="progress" id="progress"></div>
+
+
+<!-- ================================================= -->
+<!-- СЛАЙД 1 — ОБЛОЖКА -->
+<!-- ================================================= -->
+
+<section class="slide active cover">
+
+    <div class="decor-circle"></div>
+    <div class="decor-circle2"></div>
+
+
+    <div class="cover-text">
+
+        <div class="eyebrow">
+            Русская литература
+        </div>
+
+        <div class="gold-line"></div>
+
+        <h1>
+            Александр<br>
+            <span>Пушкин</span>
+        </h1>
+
+        <p>
+            Великий русский поэт, писатель и драматург,
+            оказавший огромное влияние на развитие
+            русской литературы.
+        </p>
+
+        <p class="muted"
+           style="margin-top:35px;font-size:15px;">
+            Презентация
+        </p>
+
+    </div>
+
+
+    <!-- ФОТО 1 -->
+
+    <div class="photo cover-photo">
+
+        <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX2fEpXT65hUhUw337ARnBOY7zlXj9ZhITGLhvjGQUCQ&s=10"
+            alt="Александр Сергеевич Пушкин"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- СЛАЙД 2 — БИОГРАФИЯ -->
+<!-- ================================================= -->
+
+<section class="slide biography">
+
+    <div class="decor-circle"></div>
+
+
+    <div class="bio-grid">
+
+
+        <!-- ФОТО 2 -->
+
+        <div class="photo bio-photo">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX8247ALWO-0ctUSDwRW8THIWVjd3N4NcA8Plqv8R2cQ&s"
+                alt="Александр Пушкин"
+            >
+
+        </div>
+
+
+        <div class="bio-text">
+
+            <div class="eyebrow">
+                01 — Биография
+            </div>
+
+            <div class="gold-line"></div>
+
+            <h2>
+                Александр Сергеевич Пушкин
+            </h2>
+
+            <p class="muted"
+               style="margin-top:25px;">
+
+                Александр Сергеевич Пушкин родился
+                6 июня 1799 года в Москве.
+                Он стал одним из самых известных
+                русских писателей и поэтов.
+
+            </p>
+
+            <p class="muted"
+               style="margin-top:20px;">
+
+                Пушкин прожил недолгую жизнь,
+                но создал огромное литературное
+                наследие.
+
+            </p>
+
+            <h3 style="margin-top:30px;">
+                Годы жизни
+            </h3>
+
+            <p class="muted">
+                1799 — 1837
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- СЛАЙД 3 — ЛИЦЕЙ -->
+<!-- ================================================= -->
+
+<section class="slide lyceum">
+
+    <div class="lyceum-container">
+
+        <div class="eyebrow">
+            02 — Юность
+        </div>
+
+        <div class="gold-line"></div>
+
+        <h2>
+            Царскосельский лицей
+        </h2>
+
+        <p class="muted"
+           style="max-width:750px;margin-top:20px;">
+
+            Важнейший период жизни Пушкина
+            связан с учёбой в Царскосельском лицее.
+
+        </p>
+
+
+        <div class="lyceum-grid">
+
+
+            <div class="info-card">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    Учёба
+                </h3>
+
+                <p class="muted">
+                    Пушкин поступил в лицей
+                    в 1811 году.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <h3>
+                    Друзья
+                </h3>
+
+                <p class="muted">
+                    В лицее он нашёл друзей,
+                    многие из которых остались
+                    близкими ему на всю жизнь.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <h3>
+                    Первые стихи
+                </h3>
+
+                <p class="muted">
+                    Именно в лицее ярко проявился
+                    его поэтический талант.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- СЛАЙД 4 — ТВОРЧЕСТВО -->
+<!-- ================================================= -->
+
+<section class="slide creativity">
+
+    <div class="creativity-grid">
+
+
+        <!-- ФОТО 3 -->
+
+        <div class="photo creativity-photo">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNWIaYvysFUXF8FuNQY9zTg3z4jUqj8JhOVDQJYkLeSw&s=10"
+                alt="Пушкин"
+            >
+
+        </div>
+
+
+        <div class="creativity-text">
+
+            <div class="eyebrow">
+                03 — Творчество
+            </div>
+
+            <div class="gold-line"></div>
+
+            <h2>
+                Поэт разных жанров
+            </h2>
+
+            <p style="margin-top:25px;">
+
+                Пушкин писал стихи, поэмы,
+                романы, повести, рассказы
+                и драматические произведения.
+
+            </p>
+
+            <div class="quote">
+
+                <h3>
+                    Особенность
+                </h3>
+
+                <p class="muted">
+
+                    Его язык отличался ясностью,
+                    выразительностью и богатством.
+                    Пушкин оказал большое влияние
+                    на развитие современного русского
+                    литературного языка.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- СЛАЙД 5 — ПРОИЗВЕДЕНИЯ -->
+<!-- ================================================= -->
+
+<section class="slide works">
+
+    <div class="eyebrow">
+        04 — Известные произведения
+    </div>
+
+    <div class="gold-line"></div>
+
+    <h2>
+        Что написал Пушкин?
+    </h2>
+
+
+    <div class="works-grid">
+
+
+        <div class="work">
+
+            <div class="work-title">
+                «Евгений Онегин»
+            </div>
+
+            <p>
+                Роман в стихах о любви,
+                дружбе и жизни русского общества.
+            </p>
+
+        </div>
+
+
+        <div class="work">
+
+            <div class="work-title">
+                «Капитанская дочка»
+            </div>
+
+            <p>
+                Историческая повесть
+                о событиях XVIII века.
+            </p>
+
+        </div>
+
+
+        <div class="work">
+
+            <div class="work-title">
+                «Руслан и Людмила»
+            </div>
+
+            <p>
+                Известная поэма,
+                наполненная сказочными образами.
+            </p>
+
+        </div>
+
+
+        <div class="work">
+
+            <div class="work-title">
+                «Борис Годунов»
+            </div>
+
+            <p>
+                Историческая трагедия
+                о русском государе и событиях прошлого.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- СЛАЙД 6 — НАСЛЕДИЕ -->
+<!-- ================================================= -->
+
+<section class="slide legacy">
+
+    <div class="legacy-grid">
+
+
+        <div>
+
+            <div class="eyebrow">
+                05 — Наследие
+            </div>
+
+            <div class="gold-line"></div>
+
+            <h2>
+                Почему Пушкина помнят?
+            </h2>
+
+
+            <div class="legacy-list">
+
+
+                <div class="legacy-item">
+
+                    <div class="mark">
+                        1
+                    </div>
+
+                    <p>
+                        Его произведения стали
+                        классикой русской литературы.
+                    </p>
+
+                </div>
+
+
+                <div class="legacy-item">
+
+                    <div class="mark">
+                        2
+                    </div>
+
+                    <p>
+                        Его творчество изучают
+                        в школах и университетах.
+                    </p>
+
+                </div>
+
+
+                <div class="legacy-item">
+
+                    <div class="mark">
+                        3
+                    </div>
+
+                    <p>
+                        Произведения Пушкина
+                        переведены на многие языки.
+                    </p>
+
+                </div>
+
+
+                <div class="legacy-item">
+
+                    <div class="mark">
+                        4
+                    </div>
+
+                    <p>
+                        Его имя связано с историей
+                        и развитием русской литературы.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ФОТО 4 -->
+
+        <div class="photo legacy-photo">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLAKMSLFuzBBqTjQvPUdhCJFUIVp50R_NTFc5avee_lA&s=10"
+                alt="Памятник Пушкину"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- СЛАЙД 7 — ИТОГ -->
+<!-- ================================================= -->
+
+<section class="slide final">
+
+    <div>
+
+        <div class="eyebrow">
+            06 — Итог
+        </div>
+
+        <div class="gold-line"
+             style="margin:20px auto;">
+        </div>
+
+        <h2>
+            Пушкин — часть истории литературы
+        </h2>
+
+        <p>
+
+            Александр Сергеевич Пушкин оставил
+            огромное литературное наследие.
+            Его произведения продолжают читать,
+            изучать и ставить на сцене.
+
+        </p>
+
+        <p style="
+            color:#e1c27f;
+            font-weight:bold;
+            margin-top:30px;
+        ">
+
+            Спасибо за внимание!
+
+        </p>
+
+
+        <!-- ФОТО 5 -->
+
+        <div class="photo final-photo">
+
+            <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjfTnWT8QShvwhfxmnD6D7hMgfjYbKtDxyOVfpo8tz1w&s=10"
+                alt="Александр Пушкин"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+<!-- =========================
+     НАВИГАЦИЯ
+========================= -->
+
+<div class="navigation">
+
+    <button
+        class="nav-button"
+        onclick="previousSlide()">
+        ←
+    </button>
+
+    <div
+        class="counter"
+        id="counter">
+        1 / 7
+    </div>
+
+    <button
+        class="nav-button"
+        onclick="nextSlide()">
+        →
+    </button>
+
+</div>
+
+
+<div class="hint">
+    ← → для переключения слайдов
+</div>
+
+
+<script>
+
+let currentSlide = 0;
+
+const slides =
+    document.querySelectorAll(".slide");
+
+const counter =
+    document.getElementById("counter");
+
+const progress =
+    document.getElementById("progress");
+
+
+function showSlide(number) {
+
+    if (number < 0) {
+
+        currentSlide =
+            slides.length - 1;
+
+    }
+
+    else if (number >= slides.length) {
+
+        currentSlide = 0;
+
+    }
+
+    else {
+
+        currentSlide = number;
+
+    }
+
+
+    slides.forEach(
+        (slide, index) => {
+
+            slide.classList.toggle(
+                "active",
+                index === currentSlide
+            );
+
+        }
+    );
+
+
+    counter.textContent =
+        `${currentSlide + 1} / ${slides.length}`;
+
+
+    progress.style.width =
+        `${((currentSlide + 1) / slides.length) * 100}%`;
+
+}
+
+
+function nextSlide() {
+
+    showSlide(currentSlide + 1);
+
+}
+
+
+function previousSlide() {
+
+    showSlide(currentSlide - 1);
+
+}
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "ArrowRight" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            nextSlide();
+
+        }
+
+
+        if (
+            event.key === "ArrowLeft"
+        ) {
+
+            previousSlide();
+
+        }
+
+    }
+);
+
+
+showSlide(0);
+
+</script>
+
+</body>
+</html>
+```
